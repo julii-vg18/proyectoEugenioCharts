@@ -6,26 +6,26 @@
             {
                 "id": 11,
                 "nombre": "Semana 1",
-                "sab": 200,
-                "dom": 300
+                "sab": 100,
+                "dom": 260
             },
             {
                 "id": 12,
                 "nombre": "Semana 2",
-                "sab": 200,
-                "dom": 300
+                "sab": 60,
+                "dom": 436
             },
             {
                 "id": 13,
                 "nombre": "Semana 3",
-                "sab": 200,
-                "dom": 300
+                "sab": 102,
+                "dom": 101
             },
             {
                 "id": 14,
                 "nombre": "Semana 4",
-                "sab": 200,
-                "dom": 300
+                "sab": 55,
+                "dom": 500
             }
         ],
         "color" : "red"
@@ -74,7 +74,7 @@
             {
                 "id": 31,
                 "nombre": "Semana 1",
-                "sab": 0,
+                "sab": 200,
                 "dom": 300
             },
             {
