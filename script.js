@@ -15,7 +15,6 @@ function loadData() {
     xhr.send();
 }
 
-
 const canvas = document.querySelector('#micanvas');
 var ctx = canvas.getContext('2d');
 
@@ -41,7 +40,6 @@ function pintarEjes() {
 
 
 //? Control de seleccion de mes 
-
 const seleccion = document.querySelector("[name ='selecMes']");
 
 //Controla la selecciopn inicial, que siempre es enero
@@ -54,7 +52,7 @@ seleccion.addEventListener('change', function() {
     trataDatos(selected)
 });
 
-//Trata los datos de la opcion seleccionada
+//Trata los datos de la opcion seleccionadas
 function trataDatos(e) {
     console.log(e)
 }
