@@ -1,7 +1,4 @@
-
-const canvas = document.querySelector('#micanvas');
-var ctx = canvas.getContext('2d');
-
+//? Cargamos el JSON externo /
 loadData();
 function loadData() {
     var xhr = new XMLHttpRequest();
@@ -18,7 +15,8 @@ function loadData() {
 }
 
 
-
+const canvas = document.querySelector('#micanvas');
+var ctx = canvas.getContext('2d');
 
 
 //      EJES
@@ -43,29 +41,8 @@ function pintarEjes() {
 //Control de seleccion de mes
 
 const seleccion = document.querySelector("[name ='selecMes']");
-console.log('Has seleccionado:'+ seleccion.value)
-seleccion.addEventListener('change', function(){
-    console.log('Has seleccionado:'+ seleccion.value)
+console.log('Has seleccionado:' + seleccion.value)
+seleccion.addEventListener('change', function () {
+    console.log('Has seleccionado:' + seleccion.value)
 })
 
-    //Add event listener seleccion
-    // seleccion.addEventListener('change', getInfo);
-
-    // getInfo(seleccion)
-    // function getInfo(e) {
-    //     tomarDatos(e)
-    // }
-
-    // function tomarDatos(e) {
-    //     meses.forEach((mes) => {
-    //         month = mes.mes;
-    //         week = mes.semanas
-    //     })
-    // }
-    // console.log(month);
-    // console.log(ctx)
-
-    // Envío de la petición
-    //      xhr.send();
-    //      console.log('READYSTATE: ', xhr.readyState);
-    //  }
