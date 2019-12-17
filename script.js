@@ -1,6 +1,7 @@
 //? Cargamos el JSON externo 
 var meses;
 loadData();
+
 function loadData() {
     var xhr = new XMLHttpRequest();
 
@@ -8,7 +9,7 @@ function loadData() {
 
     xhr.open('GET', './data.json', false);
 
-    xhr.onload = function () {
+    xhr.onload = function() {
         if (this.status == 200) {
             meses = JSON.parse(this.responseText);
 
@@ -23,6 +24,7 @@ var ctx = canvas.getContext('2d');
 //*      EJES
 
 pintarEjes();
+
 function pintarEjes() {
 
     //! Ordenadas
@@ -48,18 +50,17 @@ const seleccion = document.querySelector("[name ='selecMes']");
 trataDatos(seleccion.options[seleccion.selectedIndex].value);
 
 //Toma datos de la pagina cuando esta seleccion es acutalizada.
-seleccion.addEventListener('change', function () {
+seleccion.addEventListener('change', function() {
     var e = seleccion;
     var selected = e.options[e.selectedIndex].value;
     trataDatos(selected)
 });
 
 //Trata los datos de la opcion seleccionadas
-<<<<<<< HEAD
+
 var mes;
 var semanas;
-=======
->>>>>>> estilos
+
 function trataDatos(e) {
     //? Dependiendo del mes, este toma unos valores u otros
     console.log('Ha selecionado el mes: ' + e)
