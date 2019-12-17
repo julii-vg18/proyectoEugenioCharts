@@ -1,0 +1,104 @@
+[
+    {
+        "id": 1,
+        "nombre": "Enero",
+        "semanas": [
+            {
+                "id": 11,
+                "nombre": "Semana 1",
+                "sab": 200,
+                "dom": 300
+            },
+            {
+                "id": 12,
+                "nombre": "Semana 2",
+                "sab": 200,
+                "dom": 300
+            },
+            {
+                "id": 13,
+                "nombre": "Semana 3",
+                "sab": 200,
+                "dom": 300
+            },
+            {
+                "id": 14,
+                "nombre": "Semana 4",
+                "sab": 200,
+                "dom": 300
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "nombre": "Febrero",
+        "semanas": [
+            {
+                "id": 21,
+                "nombre": "Semana 1",
+                "sab": 200,
+                "dom": 300
+            },
+            {
+                "id": 22,
+                "nombre": "Semana 2",
+                "sab": 200,
+                "dom": 300
+            },
+            {
+                "id": 23,
+                "nombre": "Semana 3",
+                "sab": 200,
+                "dom": 300
+            },
+            {
+                "id": 24,
+                "nombre": "Semana 4",
+                "sab": 200,
+                "dom": 300
+            },
+            {
+                "id": 25,
+                "nombre": "Semana 5",
+                "sab": 200,
+                "dom": 0
+            }
+        ]
+    },
+    {
+        "id": 3,
+        "nombre": "Marzo",
+        "semanas": [
+            {
+                "id": 31,
+                "nombre": "Semana 1",
+                "sab": 0,
+                "dom": 300
+            },
+            {
+                "id": 32,
+                "nombre": "Semana 2",
+                "sab": 200,
+                "dom": 300
+            },
+            {
+                "id": 33,
+                "nombre": "Semana 3",
+                "sab": 200,
+                "dom": 300
+            },
+            {
+                "id": 34,
+                "nombre": "Semana 4",
+                "sab": 200,
+                "dom": 300
+            },
+            {
+                "id": 35,
+                "nombre": "Semana 5",
+                "sab": 200,
+                "dom": 300
+            }
+        ]
+    }
+]
