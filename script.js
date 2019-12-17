@@ -9,7 +9,7 @@ function loadData() {
 
     xhr.open('GET', './data.json', false);
 
-    xhr.onload = function() {
+    xhr.onload = function () {
         if (this.status == 200) {
             meses = JSON.parse(this.responseText);
 
@@ -50,12 +50,11 @@ const seleccion = document.querySelector("[name ='selecMes']");
 trataDatos(seleccion.options[seleccion.selectedIndex].value);
 
 //Toma datos de la pagina cuando esta seleccion es acutalizada.
-seleccion.addEventListener('change', function() {
+seleccion.addEventListener('change', function () {
     var e = seleccion;
     var selected = e.options[e.selectedIndex].value;
-    vaciarCanvas()
+    vaciarCanvas();
     trataDatos(selected)
-
 });
 
 //Trata los datos de la opcion seleccionadas
@@ -86,12 +85,18 @@ function trataDatos(e) {
         pintaBarra(semanas, color);
         console.log(semanas)
     }
-<<<<<<< HEAD
 }
 
 function pintaBarra(semanas, color) {
-    if (semanas.length = 4) {
-        let cont = 20
+    console.log(semanas.length)
+    var sab = 0;
+    var dom = 0;
+    //!     Comprobamos el numero de semanas que tiene ese mes y dependiendo del
+    //! numero de semanas que esta tiene, las separaciones son distintas.
+
+    if (semanas.length == 4) {
+        var cont = 20
+
         ctx.beginPath();
 
         semanas.forEach((e) => {
@@ -101,21 +106,30 @@ function pintaBarra(semanas, color) {
             cont = cont + 100
             //          orX    orY  w    h
             ctx.fillRect(cont, 599, -40, -sab);
+
             cont = cont + 50;
             ctx.fillRect(cont, 599, -40, -dom);
         });
         ctx.closePath()
 
     } else if (semanas.length = 5) {
+        let cont = 60
+        ctx.beginPath();
+        semanas.forEach((e) => {
+            let sab = e.sab;
+            let dom = e.dom;
+            ctx.fillStyle = color;
+            cont = cont + 65;
+            //          orX    orY  w    h
+            ctx.fillRect(cont, 599, -40, -sab);
 
+            cont = cont + 50;
+            ctx.fillRect(cont, 599, -40, -dom);
+        });
+        ctx.closePath()
     }
 }
 
 function vaciarCanvas() {
     ctx.clearRect(51, 599, 599, -600);
 }
-||||||| merged common ancestors
-}
-=======
-}
->>>>>>> ad82d6f7f0236a2286777d476cf169804ebbfbb3

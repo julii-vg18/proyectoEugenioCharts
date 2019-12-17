@@ -70,11 +70,12 @@ label {
     cursor: pointer;
     color: black;
     padding: 5px;
+    transition: all .2 ease;
 }
 
 input[type=radio]:checked+label {
-    background: #8bbabb;
-    color: black;
+    background: #526e6e;
+    color: white;
 }
 
 canvas {
