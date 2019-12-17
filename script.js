@@ -52,6 +52,7 @@ function loadData() {
             var mes;
             var semanas;
             function trataDatos(e) {
+                //? Dependiendo del mes, este toma unos valores u otros
                 console.log('Ha selecionado el mes: ' + e)
                 if (e == "enero") {
                     mes = meses[0];
