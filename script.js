@@ -17,7 +17,6 @@ function loadData() {
     xhr.send();
 }
 
-
 const canvas = document.querySelector('#micanvas');
 var ctx = canvas.getContext('2d');
 
@@ -56,8 +55,11 @@ seleccion.addEventListener('change', function () {
 });
 
 //Trata los datos de la opcion seleccionadas
+<<<<<<< HEAD
 var mes;
 var semanas;
+=======
+>>>>>>> estilos
 function trataDatos(e) {
     //? Dependiendo del mes, este toma unos valores u otros
     console.log('Ha selecionado el mes: ' + e)
