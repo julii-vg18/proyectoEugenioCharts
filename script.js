@@ -1,133 +1,28 @@
-const meses = [
-    {
-        "id": 1,
-        "mes": "enero",
-        "semanas": [
-            {
-                "id": 11,
-                "semana": "Semana 1",
-                "sab": 200,
-                "dom": 300
-            },
-            {
-                "id": 12,
-                "semana": "Semana 2",
-                "sab": 200,
-                "dom": 300
-            },
-            {
-                "id": 13,
-                "semana": "Semana 3",
-                "sab": 200,
-                "dom": 300
-            },
-            {
-                "id": 14,
-                "semana": "Semana 4",
-                "sab": 200,
-                "dom": 300
-            }
-        ]
-    },
-    {
-        "id": 2,
-        "mes": "febrero",
-        "semanas": [
-            {
-                "id": 21,
-                "semana": "Semana 1",
-                "sab": 200,
-                "dom": 300
-            },
-            {
-                "id": 22,
-                "semana": "Semana 2",
-                "sab": 200,
-                "dom": 300
-            },
-            {
-                "id": 23,
-                "semana": "Semana 3",
-                "sab": 200,
-                "dom": 300
-            },
-            {
-                "id": 24,
-                "semana": "Semana 4",
-                "sab": 200,
-                "dom": 300
-            },
-            {
-                "id": 25,
-                "semana": "Semana 5",
-                "sab": 200,
-                "dom": 0
-            }
-        ]
-    },
-    {
-        "id": 3,
-        "mes": "marzo",
-        "semanas": [
-            {
-                "id": 31,
-                "semana": "Semana 1",
-                "sab": 0,
-                "dom": 300
-            },
-            {
-                "id": 32,
-                "semana": "Semana 2",
-                "sab": 200,
-                "dom": 300
-            },
-            {
-                "id": 33,
-                "semana": "Semana 3",
-                "sab": 200,
-                "dom": 300
-            },
-            {
-                "id": 34,
-                "semana": "Semana 4",
-                "sab": 200,
-                "dom": 300
-            },
-            {
-                "id": 35,
-                "semana": "Semana 5",
-                "sab": 200,
-                "dom": 300
-            }
-        ]
-    }
-]
+
 const canvas = document.querySelector('#micanvas');
 var ctx = canvas.getContext('2d');
 
-// var arrayMeses = [function cargarDatos() {
-//     var xhr = new XMLHttpRequest();
-//     xhr.open('GET', 'data.json', true);
-//     xhr.onload = function () {
-//         console.log('READYSTATE: ', xhr.readyState);
-//         if (this.status == 200) {
-//             console.log(this.responseText);
-//             document.getElementById('text').innerHTML = this.responseText;
-//         } else if (this.status = 404) {
-//             document.getElementById('text').innerHTML = 'No se ha encontrado el archivo';
-//         }
-//     }
-//     // Procesar posibles errores
-//     xhr.onerror = function () {
-//         console.log('Request Error...');
-//     }
+loadData();
+function loadData() {
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', './data.json', true);
+
+
+    xhr.onload = function () {
+        if (this.status == 200) {
+            var meses = JSON.parse(this.responseText);
+            console.log("Resultados...", meses);
+        }
+    }
+    xhr.send();
+}
 
 
 
 
 
 //      EJES
-
+pintarEjes();
 function pintarEjes() {
 
     //Ordenadas
@@ -144,34 +39,33 @@ function pintarEjes() {
     ctx.closePath();
     ctx.stroke();
 }
-pintarEjes();
 
-
+//Control de seleccion de mes
 
 const seleccion = document.querySelector("[name ='selecMes']");
+console.log('Has seleccionado:'+ seleccion.value)
+seleccion.addEventListener('change', function(){
+    console.log('Has seleccionado:'+ seleccion.value)
+})
 
+    //Add event listener seleccion
+    // seleccion.addEventListener('change', getInfo);
 
-console.log(seleccion)
-getInfo(seleccion)
+    // getInfo(seleccion)
+    // function getInfo(e) {
+    //     tomarDatos(e)
+    // }
 
-//Add event listener seleccion
+    // function tomarDatos(e) {
+    //     meses.forEach((mes) => {
+    //         month = mes.mes;
+    //         week = mes.semanas
+    //     })
+    // }
+    // console.log(month);
+    // console.log(ctx)
 
-function getInfo(e) {
-    var mesSel = e.value;
-
-    tomarDatos(e);
-}
-
-function tomarDatos(e) {
-    meses.forEach((mes) => {
-        if (mes.mes == e.value) {
-            console.log(mes.semanas)
-        }
-    })
-}
-// console.log(ctx)
-
-     // Envío de la petición
-//      xhr.send();
-//      console.log('READYSTATE: ', xhr.readyState);
-//  }
+    // Envío de la petición
+    //      xhr.send();
+    //      console.log('READYSTATE: ', xhr.readyState);
+    //  }
