@@ -5,11 +5,12 @@
 }
 
 body {
-    background-color: grey;
+    background-color: #6c7b95;
     font-family: Arial, Helvetica, sans-serif;
 }
 
 .wrapper {
+    color: white;
     position: absolute;
     top: calc(50% - 450px);
     left: calc(50% - 400px);
@@ -17,7 +18,7 @@ body {
     height: 900px;
     border-bottom: 10px solid black;
     padding: 2rem;
-    background-image: linear-gradient(#f1f1f1, #a19c9c);
+    background-image: linear-gradient(#464159, #6c7b95);
 }
 
 header {
@@ -30,6 +31,7 @@ header {
 
 section {
     font-size: 30px;
+    text-align: center;
     /* border: 1px solid green; */
 }
 
@@ -44,13 +46,35 @@ tr {
     width: 100%;
 }
 
+ul {
+    /* border:1px solid green; */
+    padding-left: 225px;
+}
+
 li {
     display: table-cell;
-    margin: auto;
     padding: 10px;
     list-style-type: none;
     font-size: 20px;
     /* border: 1px solid yellow; */
+}
+
+input[type=radio] {
+    display: none;
+}
+
+label {
+    background-color: #c7f0db;
+    border: 1px solid black;
+    border-radius: 10%;
+    cursor: pointer;
+    color: black;
+    padding: 5px;
+}
+
+input[type=radio]:checked+label {
+    background: #8bbabb;
+    color: black;
 }
 
 canvas {
@@ -66,8 +90,6 @@ select {
     height: 50px;
     font-size: 20px;
     z-index: 10;
-    
-
     position: absolute;
     top: 230px;
     right: 100px;

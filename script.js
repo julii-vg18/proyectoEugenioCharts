@@ -1,6 +1,7 @@
 //? Cargamos el JSON externo 
 var meses;
 loadData();
+
 function loadData() {
     var xhr = new XMLHttpRequest();
 
@@ -8,7 +9,7 @@ function loadData() {
 
     xhr.open('GET', './data.json', false);
 
-    xhr.onload = function () {
+    xhr.onload = function() {
         if (this.status == 200) {
             meses = JSON.parse(this.responseText);
 
@@ -17,13 +18,13 @@ function loadData() {
     xhr.send();
 }
 
-
 const canvas = document.querySelector('#micanvas');
 var ctx = canvas.getContext('2d');
 
 //*      EJES
 
 pintarEjes();
+
 function pintarEjes() {
 
     //! Ordenadas
@@ -49,7 +50,7 @@ const seleccion = document.querySelector("[name ='selecMes']");
 trataDatos(seleccion.options[seleccion.selectedIndex].value);
 
 //Toma datos de la pagina cuando esta seleccion es acutalizada.
-seleccion.addEventListener('change', function () {
+seleccion.addEventListener('change', function() {
     var e = seleccion;
     var selected = e.options[e.selectedIndex].value;
     vaciarCanvas()
@@ -58,8 +59,10 @@ seleccion.addEventListener('change', function () {
 });
 
 //Trata los datos de la opcion seleccionadas
+
 var mes;
 var semanas;
+
 function trataDatos(e) {
     let color;
     //? Dependiendo del mes, este toma unos valores u otros
@@ -83,6 +86,7 @@ function trataDatos(e) {
         pintaBarra(semanas, color);
         console.log(semanas)
     }
+<<<<<<< HEAD
 }
 
 function pintaBarra(semanas, color) {
@@ -110,3 +114,8 @@ function pintaBarra(semanas, color) {
 function vaciarCanvas() {
     ctx.clearRect(51, 599, 599, -600);
 }
+||||||| merged common ancestors
+}
+=======
+}
+>>>>>>> ad82d6f7f0236a2286777d476cf169804ebbfbb3
