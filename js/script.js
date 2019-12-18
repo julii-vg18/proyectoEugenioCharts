@@ -7,12 +7,11 @@ function loadData() {
 
     //Dependiendo del true o false la llamada de AJAX es asincrona o sincrona
 
-    xhr.open('GET', './data.json', false);
+    xhr.open('GET', '../json/data.json', false);
 
     xhr.onload = function () {
         if (this.status == 200) {
             meses = JSON.parse(this.responseText);
-
         }
     }
     xhr.send();
@@ -34,12 +33,76 @@ function pintarEjes() {
     ctx.closePath();
     ctx.stroke();
 
+
+
     //! Abscisas
     ctx.beginPath();
     ctx.moveTo(40, 600)
     ctx.lineTo(650, 600);
     ctx.closePath();
     ctx.stroke();
+
+}
+
+function pintarMedidasY() {
+
+    let num = 0;
+    let altura = 603;
+    for (let i = 0; i < 12; i++) {
+        ctx.beginPath();
+        ctx.font = '30px';
+        ctx.fillStyle = 'black';
+        ctx.fillText(num, 20, altura);
+
+        ctx.fillRect(45, altura - 4, 5, 2)
+
+        ctx.closePath();
+        num = num + 1;
+        altura = altura - 50;
+    }
+}
+
+function pintarMedidasX(num) {
+
+    let ancho = 85;
+    let numero = num;
+    if (num == 4) {
+        for (let i = 0; i < numero; i++) {
+            for (let j = 0; j < 1; j++) {
+                ctx.beginPath();
+                ctx.font = '30px';
+                ctx.fillStyle = 'black';
+                ctx.fillText('Sábado', ancho, 620);
+                ctx.fillText("Domingo", ancho + 50, 620)
+
+                ctx.fillRect(ancho + 15, 600, 2, 5);
+                ctx.fillRect(ancho + 65, 600, 2, 5);
+
+                ctx.closePath();
+                ancho = ancho + 110;
+            }
+            ancho = ancho + 40;
+        }
+    } else {
+        let ancho = 90;
+        let numero = num
+        for (let i = 0; i < numero; i++) {
+            for (let j = 0; j < 1; j++) {
+                ctx.beginPath();
+                ctx.font = '30px';
+                ctx.fillStyle = 'black';
+                ctx.fillText('Sábado', ancho, 620);
+                ctx.fillText("Domingo", ancho + 50, 620)
+
+                ctx.fillRect(ancho + 15, 600, 2, 5);
+                ctx.fillRect(ancho + 65, 600, 2, 5);
+
+                ctx.closePath();
+                ancho = ancho + 77;
+            }
+            ancho = ancho + 40;
+        }
+    }
 }
 
 
@@ -95,6 +158,9 @@ function pintaBarra(semanas, color) {
     //! numero de semanas que esta tiene, las separaciones son distintas.
 
     if (semanas.length == 4) {
+        pintarMedidasY();
+        pintarMedidasX(4);
+
         var cont = 20
 
         ctx.beginPath();
@@ -104,15 +170,18 @@ function pintaBarra(semanas, color) {
             let dom = e.dom;
             ctx.fillStyle = color;
             cont = cont + 100
-            //          orX    orY  w    h
-            ctx.fillRect(cont, 599, -40, -sab);
-
+            //           orX   orY   w    h
+            ctx.fillRect(cont, 599, -40, (-sab * 50 ));
+            
             cont = cont + 50;
-            ctx.fillRect(cont, 599, -40, -dom);
+            ctx.fillRect(cont, 599, -40, (-dom * 50));
         });
         ctx.closePath()
 
     } else if (semanas.length = 5) {
+        pintarMedidasY();
+        pintarMedidasX(5);
+
         let cont = 60
         ctx.beginPath();
         semanas.forEach((e) => {
@@ -121,15 +190,19 @@ function pintaBarra(semanas, color) {
             ctx.fillStyle = color;
             cont = cont + 65;
             //          orX    orY  w    h
-            ctx.fillRect(cont, 599, -40, -sab);
+            ctx.fillRect(cont, 599, -40, -sab * 50);
 
             cont = cont + 50;
-            ctx.fillRect(cont, 599, -40, -dom);
+            ctx.fillRect(cont, 599, -40, -dom * 50);
         });
         ctx.closePath()
     }
 }
 
+//?    Esta funcion vacía el canvas justo despues de clickar sobre el boton de una grafica
+//? distinta a la actual
 function vaciarCanvas() {
     ctx.clearRect(51, 599, 599, -600);
+    ctx.clearRect(51, 601, 1000, 100);
 }
+

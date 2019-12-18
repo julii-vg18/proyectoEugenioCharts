@@ -6,26 +6,26 @@
             {
                 "id": 11,
                 "nombre": "Semana 1",
-                "sab": 100,
-                "dom": 260
+                "sab": 0,
+                "dom": 0
             },
             {
                 "id": 12,
                 "nombre": "Semana 2",
-                "sab": 60,
-                "dom": 436
+                "sab": 1,
+                "dom": 0
             },
             {
                 "id": 13,
                 "nombre": "Semana 3",
-                "sab": 102,
-                "dom": 121
+                "sab": 0,
+                "dom": 0
             },
             {
                 "id": 14,
                 "nombre": "Semana 4",
-                "sab": 55,
-                "dom": 500
+                "sab": 2,
+                "dom": 4
             }
         ],
         "color" : "red"
@@ -37,32 +37,32 @@
             {
                 "id": 21,
                 "nombre": "Semana 1",
-                "sab": 200,
-                "dom": 300
+                "sab": 3,
+                "dom": 3.3
             },
             {
                 "id": 22,
                 "nombre": "Semana 2",
-                "sab": 200,
-                "dom": 300
+                "sab": 8,
+                "dom": 9
             },
             {
                 "id": 23,
                 "nombre": "Semana 3",
-                "sab": 200,
-                "dom": 300
+                "sab": 2,
+                "dom": 2
             },
             {
                 "id": 24,
                 "nombre": "Semana 4",
-                "sab": 200,
-                "dom": 300
+                "sab": 2.2,
+                "dom": 7.3
             },
             {
                 "id": 25,
                 "nombre": "Semana 5",
-                "sab": 200,
-                "dom": 0
+                "sab": 5.6,
+                "dom": 2
             }
         ],
         "color" : "green"
@@ -74,32 +74,32 @@
             {
                 "id": 31,
                 "nombre": "Semana 1",
-                "sab": 200,
-                "dom": 300
+                "sab": 9,
+                "dom": 10
             },
             {
                 "id": 32,
                 "nombre": "Semana 2",
-                "sab": 200,
-                "dom": 300
+                "sab": 0.5,
+                "dom": 6
             },
             {
                 "id": 33,
                 "nombre": "Semana 3",
-                "sab": 200,
-                "dom": 300
+                "sab": 1,
+                "dom": 1
             },
             {
                 "id": 34,
                 "nombre": "Semana 4",
-                "sab": 200,
-                "dom": 300
+                "sab": 2,
+                "dom": 0
             },
             {
                 "id": 35,
                 "nombre": "Semana 5",
-                "sab": 200,
-                "dom": 300
+                "sab": 2,
+                "dom": 5
             }
         ],
         "color" : "blue"
