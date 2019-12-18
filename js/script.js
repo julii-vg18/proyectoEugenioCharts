@@ -130,19 +130,28 @@ function trataDatos(e) {
     //? Dependiendo del mes, este toma unos valores u otros
     console.log('Ha selecionado el mes: ' + e)
     if (e == "enero") {
-        color = 'red';
+        gradient = ctx.createLinearGradient(0, 0, 0, 170);
+        gradient.addColorStop(0, "#1a97a0");
+        gradient.addColorStop(1, "#56ecf7");
+
         mes = meses[0];
         semanas = mes.semanas;
         pintaBarra(semanas, color)
         console.log(semanas)
     } else if (e == "febrero") {
-        color = 'green';
+        gradient = ctx.createLinearGradient(0, 0, 0, 170);
+        gradient.addColorStop(0, "#1a97a0");
+        gradient.addColorStop(1, "#56ecf7");
+
         mes = meses[1];
         semanas = mes.semanas;
         pintaBarra(semanas, color);
         console.log(semanas);
     } else {
-        color = 'blue';
+        gradient = ctx.createLinearGradient(0, 0, 0, 170);
+        gradient.addColorStop(0, "#1a97a0");
+        gradient.addColorStop(1, "#56ecf7");
+
         mes = meses[2];
         semanas = mes.semanas;
         pintaBarra(semanas, color);
@@ -170,11 +179,11 @@ function pintaBarra(semanas, color) {
         semanas.forEach((e) => {
             let sab = e.sab;
             let dom = e.dom;
-            ctx.fillStyle = color;
+            ctx.fillStyle = gradient;
             cont = cont + 100
             //           orX   orY   w    h
-            ctx.fillRect(cont, 599, -40, (-sab * 50 ));
-            
+            ctx.fillRect(cont, 599, -40, (-sab * 50));
+
             cont = cont + 50;
             ctx.fillRect(cont, 599, -40, (-dom * 50));
         });
@@ -189,7 +198,7 @@ function pintaBarra(semanas, color) {
         semanas.forEach((e) => {
             let sab = e.sab;
             let dom = e.dom;
-            ctx.fillStyle = color;
+            ctx.fillStyle = gradient;
             cont = cont + 65;
             //          orX    orY  w    h
             ctx.fillRect(cont, 599, -40, -sab * 50);
@@ -212,4 +221,8 @@ function vaciarCanvas() {
     ctx.clearRect(51, 601, 1000, 100);
 
 }
+
+
+
+//! TRABAJO DATOS
 

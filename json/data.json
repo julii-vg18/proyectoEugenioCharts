@@ -28,7 +28,7 @@
                 "dom": 4
             }
         ],
-        "color" : "red"
+        "color" : "#adf0f5"
     },
     {
         "id": 2,
@@ -65,7 +65,7 @@
                 "dom": 2
             }
         ],
-        "color" : "green"
+        "color" : "#56ecf7"
     },
     {
         "id": 3,
@@ -102,6 +102,6 @@
                 "dom": 5
             }
         ],
-        "color" : "blue"
+        "color" : "#1a97a0"
     }
 ]
