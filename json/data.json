@@ -1,3 +1,4 @@
+<<<<<<< HEAD:data.json
 [{
     "fecha": "2019-01-01",
     "indicativo": "1207U",
@@ -2013,3 +2014,112 @@
     "presMin": "1009,4",
     "horaPresMin": "17"
 }]
+=======
+[
+    {
+        "id": 1,
+        "nombre": "Enero",
+        "semanas": [
+            {
+                "id": 11,
+                "nombre": "Semana 1",
+                "sab": 0,
+                "dom": 0
+            },
+            {
+                "id": 12,
+                "nombre": "Semana 2",
+                "sab": 1,
+                "dom": 0
+            },
+            {
+                "id": 13,
+                "nombre": "Semana 3",
+                "sab": 0,
+                "dom": 0
+            },
+            {
+                "id": 14,
+                "nombre": "Semana 4",
+                "sab": 2,
+                "dom": 4
+            }
+        ],
+        "color" : "red"
+    },
+    {
+        "id": 2,
+        "nombre": "Febrero",
+        "semanas": [
+            {
+                "id": 21,
+                "nombre": "Semana 1",
+                "sab": 3,
+                "dom": 3.3
+            },
+            {
+                "id": 22,
+                "nombre": "Semana 2",
+                "sab": 8,
+                "dom": 9
+            },
+            {
+                "id": 23,
+                "nombre": "Semana 3",
+                "sab": 2,
+                "dom": 2
+            },
+            {
+                "id": 24,
+                "nombre": "Semana 4",
+                "sab": 2.2,
+                "dom": 7.3
+            },
+            {
+                "id": 25,
+                "nombre": "Semana 5",
+                "sab": 5.6,
+                "dom": 2
+            }
+        ],
+        "color" : "green"
+    },
+    {
+        "id": 3,
+        "nombre": "Marzo",
+        "semanas": [
+            {
+                "id": 31,
+                "nombre": "Semana 1",
+                "sab": 9,
+                "dom": 10
+            },
+            {
+                "id": 32,
+                "nombre": "Semana 2",
+                "sab": 0.5,
+                "dom": 6
+            },
+            {
+                "id": 33,
+                "nombre": "Semana 3",
+                "sab": 1,
+                "dom": 1
+            },
+            {
+                "id": 34,
+                "nombre": "Semana 4",
+                "sab": 2,
+                "dom": 0
+            },
+            {
+                "id": 35,
+                "nombre": "Semana 5",
+                "sab": 2,
+                "dom": 5
+            }
+        ],
+        "color" : "blue"
+    }
+]
+>>>>>>> d1f738eb6b18b60c474d164d5ed46589a58fcb7d:json/data.json
