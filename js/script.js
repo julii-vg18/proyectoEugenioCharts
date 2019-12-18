@@ -157,6 +157,8 @@ function pintaBarra(semanas, color) {
     //!     Comprobamos el numero de semanas que tiene ese mes y dependiendo del
     //! numero de semanas que esta tiene, las separaciones son distintas.
 
+    // Hacemos una llamada a las funciones de pintar los ejes de abscisas y ordenadas
+
     if (semanas.length == 4) {
         pintarMedidasY();
         pintarMedidasX(4);
@@ -202,7 +204,12 @@ function pintaBarra(semanas, color) {
 //?    Esta funcion vacía el canvas justo despues de clickar sobre el boton de una grafica
 //? distinta a la actual
 function vaciarCanvas() {
+    //Limpia Canvas
     ctx.clearRect(51, 599, 599, -600);
+    //Limpia Ordenadas
+    ctx.clearRect(0, 20, 35, 600);
+    //Limpia Abscisas
     ctx.clearRect(51, 601, 1000, 100);
+
 }
 
