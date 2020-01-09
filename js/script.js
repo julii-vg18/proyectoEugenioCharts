@@ -1,22 +1,19 @@
-const tipoGraf = document.querySelectorAll("[name = 'seleccion']");
-
-console.log(tipoGraf)
-var seleccionada = "barras";
-
-tipoGraf.forEach((boton) => {
-    boton.addEventListener('click', getTipo)
-})
-
-console.log("fffff " + seleccionada)
-
 //! Toma el tipo de grafica que ha sido seleccionada  */
-function getTipo () {
-    tipoGraf.forEach((tipo) => {
-    if (tipo.checked == true) {
-        seleccionada = tipo.id;
-    }
+const botones = document.querySelectorAll("[name = 'seleccion']")
+console.log(botones)
+var selected = '';
+botones.forEach((boton) => {
+    boton.addEventListener('click', changeTipo)
 })
+
+function changeTipo() {
+    var e = this;
+    if (e.checked === true) {
+        selected = e;  
+    }
+    console.log(selected.id)
 }
+
 
 //? Cargamos el JSON externo 
 var meses = [
