@@ -78,7 +78,7 @@ label {
     padding: 10px;
 }
 
-input[type=radio]:checked + label {
+input[type=radio]:checked+label {
     box-sizing: border-box;
     background: #526e6e;
     border: 2px solid grey;
@@ -95,11 +95,13 @@ select:hover {
 }
 
 canvas {
-    background-color: rgb(202, 202, 202);
+    background-color: #cacaca;
     position: relative;
     top: 30px;
-    left: calc(50% - 350px);
+    left: calc(50% - 349px);
     border: 1px solid black;
+    z-index: 1;
+    border: 0;
 }
 
 select {
@@ -110,4 +112,14 @@ select {
     position: absolute;
     top: 230px;
     right: 100px;
+}
+
+.pastel {
+    transform: rotateX(300deg);
+}
+
+.fijo {
+    position: absolute;
+    top: 200px;
+    z-index: 0;
 }

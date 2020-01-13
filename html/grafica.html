@@ -16,22 +16,25 @@
         <section>Selecciona tipo de gráfica: <br>
             <nav>
                 <ul>
-                    <li><input type="radio" name="seleccion" id="barras" checked><label for="barras"> Barras</label></li>
-                    <li><input type="radio" name="seleccion" id="lineas"><label for="lineas"> Lineas</label></li>
-                    <li><input type="radio" name="seleccion" id="pastel"><label for="pastel"> Pastel</label></li>
+                    <li><input type="radio" name="tipoGrafica" id="barras"><label for="barras"> Barras</label></li>
+                    <li><input type="radio" name="tipoGrafica" id="lineas"><label for="lineas"> Lineas</label></li>
+                    <li><input type="radio" name="tipoGrafica" id="pastel"><label for="pastel"> Pastel</label></li>
                 </ul>
             </nav>
         </section>
         <div class="contenido">
             <div class="selecMes">
-                <select name="selecMes">
+                <select id="listaMeses">
                     <option value="enero" id="enero" selected>Enero</option>
                     <option value="febrero" id="febrero">Febrero</option>
-                    <option value="marzo" id="marzo">Marzo</option>                </select>
+                    <option value="marzo" id="marzo">Marzo</option>     
+                </select>
             </div>
             <canvas id="micanvas" width="700" height="650"></canvas>
+            <canvas id="micanvas" width="700" height="650" class="fijo"></canvas>
+            
         </div>
     </div>
 </body>
-<script src="../js/script.js"></script>
+<script src="../js/script1.js"></script>
 </html>

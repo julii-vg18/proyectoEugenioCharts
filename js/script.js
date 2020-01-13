@@ -1,21 +1,4 @@
-//! Toma el tipo de grafica que ha sido seleccionada  */
-const botones = document.querySelectorAll("[name = 'seleccion']")
-console.log(botones)
-var selected = '';
-botones.forEach((boton) => {
-    boton.addEventListener('click', changeTipo)
-})
-
-function changeTipo() {
-    var e = this;
-    if (e.checked === true) {
-        selected = e;  
-    }
-    console.log(selected.id)
-}
-
-
-//? Cargamos el JSON externo 
+//! Cargamos el JSON interno 
 var meses = [
     {
         "mes": "enero",
@@ -107,11 +90,11 @@ tempSem = arraytempmediasemanas;
 tempMes = arraytempmediameses;
 
 
-//*      EJES
-
-pintarEjes();
+//!      EJES
 
 function pintarEjes() {
+
+    vaciarCanvas();
 
     //! Ordenadas
     ctx.beginPath();
@@ -129,6 +112,8 @@ function pintarEjes() {
     ctx.closePath();
     ctx.stroke();
 
+    pintarMedidasY();
+    pintarMedidasX(4);
 }
 
 function pintarMedidasY() {
@@ -140,9 +125,7 @@ function pintarMedidasY() {
         ctx.font = '30px';
         ctx.fillStyle = 'black';
         ctx.fillText(num, 20, altura);
-
         ctx.fillRect(45, altura - 4, 5, 2)
-
         ctx.closePath();
         num = num + 2;
         altura = altura - 50;
@@ -173,84 +156,84 @@ function pintarMedidasX(num) {
 
 
 //? Control de seleccion de mes 
-const seleccion = document.querySelector("[name ='selecMes']");
+const mesSeleccionado = document.querySelector("[name ='selecMes']");
 
-//Controla la selecciopn inicial, que siempre es enero
-trataDatos(seleccion.options[seleccion.selectedIndex].value);
+//Controla la seleccioon inicial, que siempre es enero
+// trataMeses(mesSeleccionado.options[mesSeleccionado.selectedIndex].value);
 
-//Toma datos de la pagina cuando esta seleccion es actualizada.
-seleccion.addEventListener('change', function () {
-    var e = seleccion;
-    var selected = e.options[e.selectedIndex].value;
-    vaciarCanvas();
-    trataDatos(selected)
-});
+
 
 //Trata los datos de la opcion seleccionadas
 
-var mes;
+var mes = '';
 var semanas;
 
-function trataDatos(e) {
-    let color;
-    //? Dependiendo del mes, este toma unos valores u otros
-    console.log('Ha selecionado el mes: ' + e)
-    if (e == "enero") {
-        gradient = ctx.createLinearGradient(0, 0, 0, 170);
-        gradient.addColorStop(0, "#1a97a0");
-        gradient.addColorStop(1, "#56ecf7");
+// function trataMeses(e) {
+//     //? Dependiendo del mes, este toma unos valores u otros
+//     console.log('Ha selecionado el mes: ' + e)
+//     if (e == "enero") {
+//         gradient = ctx.createLinearGradient(0, 0, 0, 170);
+//         gradient.addColorStop(0, "#1a97a0");
+//         gradient.addColorStop(1, "#56ecf7");
 
-        mes = meses[0];
-        console.log(mes);
-        semanas = "";
-        for (let i = 0; i <= 3; i++) {
-            mes.weeks.push(arraytempmediasemanas[i]);
-        }
-        semanas = mes.weeks;
-        pintaBarra(semanas, color)
-    } else if (e == "febrero") {
-        gradient = ctx.createLinearGradient(0, 0, 0, 170);
-        gradient.addColorStop(0, "#1a97a0");
-        gradient.addColorStop(1, "#56ecf7");
+//         //* Toma del json donde se guardan los datos de los 3 primeros meses del año
+//         mes = meses[0];
+//         console.log(mes);
+//         semanas = ''
 
-        mes = meses[1];
-        console.log(mes);
-        semanas = "";
-        for (let i = 4; i <= 7; i++) {
+//         //? Guarda cada uno de los datos de las semanas en el json 
+//         for (let i = 0; i <= 3; i++) {
+//             mes.weeks.push(arraytempmediasemanas[i]);
+//         }
 
-            mes.weeks.push(arraytempmediasemanas[i]);
-        }
-        semanas = mes.weeks;
-        pintaBarra(semanas, color);
-    } else {
-        gradient = ctx.createLinearGradient(0, 0, 0, 170);
-        gradient.addColorStop(0, "#1a97a0");
-        gradient.addColorStop(1, "#56ecf7");
+//         semanas = mes.weeks;
+//         pintarGrafica();
+//         // pintaBarra(semanas, color)
+//     } else if (e == "febrero") {
+//         gradient = ctx.createLinearGradient(0, 0, 0, 170);
+//         gradient.addColorStop(0, "orange");
+//         gradient.addColorStop(1, "yellow");
 
-        mes = meses[2];
-        console.log(mes);
-        semanas = "";
-        for (let i = 5; i <= 11; i++) {
-            mes.weeks.push(arraytempmediasemanas[i]);
-        }
-        semanas = mes.weeks;
-        pintaBarra(semanas, color);
-    }
-}
+//         mes = meses[1];
+//         console.log(mes);
+//         semanas = '';
+//         for (let i = 4; i <= 7; i++) {
+//             mes.weeks.push(arraytempmediasemanas[i]);
+//         }
+//         semanas = mes.weeks;
+//         pintarGrafica();
+//         // pintaBarra(semanas, color);
+//     } else {
+//         gradient = ctx.createLinearGradient(0, 0, 0, 170);
+//         gradient.addColorStop(0, "#1a97a0");
+//         gradient.addColorStop(1, "#56ecf7");
 
-function pintaBarra(semanas) {
+//         mes = meses[2];
+//         console.log(mes);
+//         semanas = '';
+//         for (let i = 5; i <= 11; i++) {
+//             mes.weeks.push(arraytempmediasemanas[i]);
+//         }
+//         semanas = mes.weeks;
+//         pintarGrafica();
+//         // pintaBarra(semanas, color);
+//     }
+// }
+
+
+
+
+function pintaBarras(sems) {
     //!     Comprobamos el numero de semanas que tiene ese mes y dependiendo del
     //! numero de semanas que esta tiene, las separaciones son distintas.
 
     // Hacemos una llamada a las funciones de pintar los ejes de abscisas y ordenadas
-    pintarMedidasY();
-    pintarMedidasX(4);
 
     var cont = 20
-
+    console.log("LEL" + sems)
     ctx.beginPath();
 
-    semanas.forEach((e) => {
+    sems.forEach((semana) => {
         let sem = e;
         ctx.fillStyle = gradient;
         cont = cont + 150
@@ -261,44 +244,53 @@ function pintaBarra(semanas) {
     });
     cont = 2000;
     ctx.closePath()
-
 }
 
-var sumatorio = 0;   //804
-var ultimoAngulo = 0;
+// function pintaBarra(semanas) {
+//     //!     Comprobamos el numero de semanas que tiene ese mes y dependiendo del
+//     //! numero de semanas que esta tiene, las separaciones son distintas.
 
-function pintaPastel() {
-    meses.forEach(mes => {
-        mes.weeks.forEach(semana => {
-            sumatorio += semana.sab; // Suma todos los datos para saber el total del mes y poder dividir el circulo
-        });
-    });
+//     // Hacemos una llamada a las funciones de pintar los ejes de abscisas y ordenadas
 
-    meses.forEach(mes => {
-        for (let i = 0; i < 4; i++) {
-            let week = weeks[i];
-            ctx.fillStyle = semana.color;
-            ctx.beginPath();
-            ctx.arc(250, 250, 200, ultimoAngulo, ultimoAngulo + Math.PI * 2 * (semana.sab / sumatorio), false);
-            ctx.arc(250, 300, 200, ultimoAngulo + Math.PI * 2 * (semana.sab / sumatorio), ultimoAngulo, true);
-            ctx.fill();
-            ctx.stroke();
-            ultimoAngulo += Math.PI * 2 * (weeks / sumatorio);
-        };
-    });
+//     var cont = 20
 
-    meses.forEach(mes => {
-        mes.weeks.forEach(semana => {
-            ctx.fillStyle = semana.color;
-            ctx.beginPath();
-            ctx.moveTo(250, 250);
-            ctx.arc(250, 250, 200, ultimoAngulo, ultimoAngulo + Math.PI * 2 * (semana.sab / sumatorio), false); // Área de un círculo 2*PI*radio
-            ctx.lineTo(250, 250); // Mueve el selector al centro del canvas,
-            ctx.fill();
-            ultimoAngulo += Math.PI * 2 * (semana.sab / sumatorio);
-        });
+//     ctx.beginPath();
+
+//     semanas.forEach((e) => {
+//         let sem = e;
+//         ctx.fillStyle = gradient;
+//         cont = cont + 150
+
+//         //           orX   orY   w    h
+//         ctx.fillRect(cont, 599, -40, (-sem * 25));
+
+//     });
+//     cont = 2000;
+//     ctx.closePath()
+
+// }
+
+function pintaLineas(semanas) {
+
+    pintarMedidasY();
+    pintarMedidasX(4);
+    var cont = 20;
+
+
+    ctx.beginPath();
+    ctx.strokeStyle = "black";
+    ctx.lineWidth = 3;
+    semanas.forEach((sem) => {
+        cont = cont + 150;
+        ctx.lineTo(cont - 20, (-sem * 25) + 600);
     })
+    ctx.stroke();
+    ctx.closePath();
+    ctx.fillStyle = "#cacaca";
+    ctx.fillRect(600, 598, 599, -600);
+
 }
+
 /*
     Vaciamos el canvas
 */
@@ -309,4 +301,102 @@ function vaciarCanvas() {
     ctx.clearRect(0, 20, 35, 600);
     //Limpia Abscisas
     ctx.clearRect(51, 601, 1000, 100);
+}
+
+
+selectMes();
+
+//! Toma el tipo de grafica que ha sido seleccionada al pulsar el boton
+const botones = document.querySelectorAll("[name = 'seleccion']")
+var selected = 'barras';
+console.log(selected)
+botones.forEach((boton) => {
+    boton.addEventListener('change', changeTipo)
+})
+
+function changeTipo() {
+    //? Resetea el canvas antes de cambiar la grafica
+    vaciarCanvas();
+    console.log(this)
+    e = this;
+    if (e.checked == true) {
+        selected = e.id;
+    }
+    pintarGrafica(selected);
+}
+
+
+
+mesSeleccionado.addEventListener('change', function () {
+    vaciarCanvas();
+    var mes = mesSeleccionado.value;
+    selectMes(mes);
+})
+var semanas = meses[0].weeks;
+
+/* Funcione el cambio de lineas a barras y pastel */
+function pintarGrafica(grafica) {
+    //      tipo graf
+    switch (grafica) {
+        case 'barras':
+            pintarEjes();
+            pintaBarras(semanas);
+            break;
+
+        case 'lineas':
+            pintarEjes();
+            pintaLineas();
+            break;
+
+        case 'pastel':
+            // pintaPastel(semanas);
+            console.log("pinta pastel")
+            break;
+    }
+}
+
+//Toma datos de la pagina cuando esta seleccion es actualizada.
+function selectMes(mes) {
+    switch (mes) {
+        case 'enero':
+            mes = meses[0];
+            console.log(mes);
+            semanas = ''
+
+            //? Guarda cada uno de los datos de las semanas en el json 
+            for (let i = 0; i <= 3; i++) {
+                mes.weeks.push(arraytempmediasemanas[i]);
+            }
+
+            semanas = mes.weeks;
+            console.log("Ha sellecionado " + mes)
+            pintarGrafica(mes)
+            break;
+        case 'febrero':
+            mes = meses[1];
+            console.log(mes);
+            semanas = '';
+            for (let i = 4; i <= 7; i++) {
+                mes.weeks.push(arraytempmediasemanas[i]);
+            }
+            semanas = mes.weeks;
+            console.log("Ha selecionado " + mes)
+            // pintarGrafica(mes)
+            break;
+        case 'marzo':
+
+            mes = meses[2];
+            console.log(mes);
+            semanas = '';
+            for (let i = 5; i <= 11; i++) {
+                mes.weeks.push(arraytempmediasemanas[i]);
+            }
+            semanas = mes.weeks;
+            console.log("Ha selecionado " + mes)
+            // pintarGrafica(mes)
+            break;
+        default:
+            pintarGrafica('barras')
+            break;
+    }
 }
