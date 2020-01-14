@@ -86,7 +86,7 @@ label {
 }
 
 /*
-    Seleccionamos los inputas checkeados
+    Seleccionamos los inputs checkeados
 */
 
 input[type=radio]:checked+label {

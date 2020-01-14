@@ -88,6 +88,11 @@ function loadData() {
 const canvas = document.querySelector("#micanvas");
 var ctx = canvas.getContext("2d");
 
+
+ctx.font = "30px Arial";
+ctx.fillText('SELECCIONE TIPO DE GRÁFICA', 115, 320)
+ctx.font = ""
+
 tempSem = arraytempmediasemanas;
 tempMes = arraytempmediameses;
 
@@ -99,7 +104,7 @@ function pintarMedidasY() {
   let altura = 603;
   for (let i = 0; i < 12; i++) {
     ctx.beginPath();
-    ctx.font = "30px";
+    ctx.font = "12px Arial";
     ctx.fillStyle = "black";
     ctx.fillText(num, 20, altura);
 
@@ -120,7 +125,6 @@ function pintarMedidasX(num) {
       ctx.beginPath();
       ctx.font = "30px";
       ctx.fillStyle = "black";
-      //Raul dijo que se pusieran parentesis
       ctx.fillText("Semana " + (i + 1), ancho + 25, 620);
 
       ctx.fillRect(ancho + 45, 600, 2, 5);
@@ -136,18 +140,20 @@ function pintarMedidasX(num) {
 var mes;
 var semanas;
 
+//?     Comprobamos el numero de semanas que tiene ese mes y dependiendo del
+//? numero de semanas que esta tiene, las separaciones son distintas.
 function pintaBarra(semanas) {
-  //?     Comprobamos el numero de semanas que tiene ese mes y dependiendo del
-  //? numero de semanas que esta tiene, las separaciones son distintas.
+  
 
   // Hacemos una llamada a las funciones de pintar los ejes de abscisas y ordenadas
   pintarMedidasY();
   pintarMedidasX(4);
 
+  //Este contador sera el cual lleve la suma del desplazamiento en el eje X
   var cont = 20;
 
   ctx.beginPath();
-
+  // Para cada una de las semanas se pinta una barra a proporcion del alto del canvas */
   semanas.forEach(e => {
     let sem = e;
     ctx.fillStyle = "red";
@@ -156,6 +162,7 @@ function pintaBarra(semanas) {
     //           orX   orY   w    h
     ctx.fillRect(cont, 599, -40, -sem * 25);
   });
+
   cont = 2000;
   ctx.closePath();
 }
@@ -170,14 +177,17 @@ function pintaLineas(semanas) {
   ctx.beginPath();
   ctx.strokeStyle = "black";
   ctx.lineWidth = 3;
+
   semanas.forEach((sem) => {
     cont = cont + 150;
-    ctx.lineTo(cont - 20, (-sem * 25) + 600);
+
+    ctx.fillRect(cont - 25, (-sem * 26) + 603, 10, 10);
+    ctx.lineTo(cont - 25, (-sem * 25) + 600);
+
   })
   ctx.stroke();
   ctx.closePath();
-  ctx.fillStyle = "#cacaca";
-  ctx.fillRect(600, 598, 599, -600);
+  
 
 }
 
@@ -265,6 +275,7 @@ function pintarEjes() {
   ctx.stroke();
 }
 
+// FUNCION PARA VACIAR EL CANVAS DEJANDO LOS EJES
 function vaciarCanvasConEjes() {
   //Limpia Canvas
   ctx.clearRect(51, 599, 599, -600);
@@ -274,16 +285,16 @@ function vaciarCanvasConEjes() {
   ctx.clearRect(51, 601, 1000, 100);
 }
 
-function vaciarCanvasTotal() {
-  //Vacia el canvas al completo, con ejes incluidos
-  ctx.clearRect(0, 0, 1000, 1000)
+//FUNCION QUE VACIA EL CALVAS POR COMPLETO
+function vaciarCanvasTotal() {  
+  ctx.clearRect(0, 0, 700, 700)
 }
 
 //  FUNCIÓN PARA LEER EL MES SELECCIONADO
 const selectorMeses = document.getElementById("listaMeses");
 const leyenda = document.getElementById("leyenda");
 
-pintarGrafica("barras", "enero");
+// pintarGrafica("barras", "enero");
 
 var tipoActual, mesActual;
 
@@ -300,7 +311,7 @@ selectorMeses.addEventListener("change", function () {
 
 //  FUNCIÓN PARA LEER EL TIPO DE GRÁFICA SELECCIONADA
 const selectorTipo = document.querySelectorAll('[name="tipoGrafica"]');
-selectorTipo[0].checked = true;
+
 
 selectorTipo.forEach((tipo) => {
   tipo.addEventListener('change', tipoSeleccionado);
