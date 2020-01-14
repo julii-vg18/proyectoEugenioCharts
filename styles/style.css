@@ -1,3 +1,5 @@
+/* Reiniciamos los estilos */
+
 * {
     margin: 0;
     padding: 0;
@@ -6,9 +8,14 @@
 }
 
 body {
-    background-color: #6c7b95;
+    background-color: rgb(121, 121, 121);
     font-family: Arial, Helvetica, sans-serif;
 }
+
+/* 
+Situamos la parte principal de la aplicacion 
+en el centro de la pantalla
+*/
 
 .wrapper {
     color: white;
@@ -17,9 +24,9 @@ body {
     left: calc(50% - 400px);
     width: 800px;
     height: 900px;
-    border-bottom: 10px solid black;
+    border-bottom: 6px solid black;
     padding: 2rem;
-    background-image: linear-gradient(#464159, #6c7b95);
+    background-image: linear-gradient(rgb(75, 0, 0), rgb(121, 121, 121));
 }
 
 header {
@@ -27,13 +34,11 @@ header {
     height: 60px;
     font-size: 40px;
     text-align: center;
-    /* border: red 1px solid; */
 }
 
 section {
     font-size: 30px;
     text-align: center;
-    /* border: 1px solid green; */
 }
 
 table {
@@ -48,7 +53,6 @@ tr {
 }
 
 ul {
-    /* border:1px solid green; */
     margin-top: 15px;
     padding-left: 225px;
 }
@@ -58,29 +62,36 @@ li {
     padding: 10px;
     list-style-type: none;
     font-size: 20px;
-    /* border: 1px solid yellow; */
 }
 
+/*
+    Seleccionamos los input de tipo radio
+*/
 input[type=radio] {
     padding: 5px;
     display: none;
 }
 
 label {
-    background-color: #c7f0db;
+    background-color: #252627;
     border: 1px solid black;
     margin-top: 10px;
     border-radius: 10%;
     cursor: pointer;
-    color: black;
+    color: white;
+    font-weight: 600;
     padding: 5px;
     transition: all .2s ease;
     padding: 10px;
 }
 
+/*
+    Seleccionamos los inputas checkeados
+*/
+
 input[type=radio]:checked+label {
     box-sizing: border-box;
-    background: #526e6e;
+    background: #BB0A21;
     border: 2px solid grey;
     color: white;
 }
@@ -105,7 +116,7 @@ canvas {
 }
 
 select {
-    width: 100px;
+    width: 120px;
     height: 50px;
     font-size: 20px;
     z-index: 2;
@@ -114,12 +125,44 @@ select {
     right: 100px;
 }
 
+/*
+    Esta clase transforma el canvas para dar la
+    perspectiva de que esta mas plano
+*/
 .pastel {
-    transform: rotateX(300deg);
+    transform: rotateX(320deg);
 }
 
 .fijo {
     position: absolute;
     top: 200px;
     z-index: 0;
+}
+
+.leyenda{
+    opacity: 0;
+    z-index: 2;
+    width: 900px;
+    font-weight: 900;
+    text-transform: uppercase;
+    position: absolute;
+    top: 770px;
+    left: -100px;
+}
+
+.leyendaItem:nth-child(1){
+    color: red;
+}
+.leyendaItem:nth-child(2){
+    color: green;
+}
+.leyendaItem:nth-child(3){
+    color: blue;
+}
+.leyendaItem:nth-child(4){
+    color: yellow;
+}
+
+.leyenda.active{
+    opacity: 1;
 }
